@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="900" height="700"></canvas>
+    <input type="color" id="cor">
+    <button id="modoBorracha">Borracha</button>
+
+    <script>
+        let canvas = document.getElementById("canvas"); // Este é o canvas
+        let contexto = canvas.getContext("2d"); // Tipo de desenho
+        let desenhando = false; // Confirma se estamos desenhando
+        let seletor = document.getElementById("cor");
+        let modoBorracha = false; // Flag para o modo de borracha
+
+        // Função para alterar o modo de borracha
+        function toggleBorracha() {
+            modoBorracha = !modoBorracha; // Alternar entre desenho e borracha
+            if (modoBorracha) {
+                seletor.disabled = true; // Desativar o seletor de cor
+            } else {
+                seletor.disabled = false; // Reativar o seletor de cor
+                contexto.strokeStyle = seletor.value; // Definir a cor de desenho
+            }
+        }
+
+        // Adicionar um ouvinte de evento para o botão de borracha
+        document.getElementById("modoBorracha").addEventListener("click", toggleBorracha);
+
+        // Resto do código permanece o mesmo
+
+        // Função para alterar a cor de desenho
+        function alterarCor() {
+            if (!modoBorracha) {
+                contexto.strokeStyle = seletor.value;
+            }
+        }
+
+        seletor.addEventListener("change", alterarCor);
+
+        // Resto do código permanece o mesmo
+    </script>
+</body>
+</html>

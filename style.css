@@ -1,0 +1,12 @@
+canvas{
+    border: 2px solid black;
+    background-color: white;
+}
+    body {
+        text-align: center;
+        background-image: linear-gradient(90deg, rgba(255, 0, 72, 0.804), rgba(255, 0, 72, 0.893) ,rgba(57, 0, 181, 0.789) );
+
+    }
+input{
+    opacity: 0.5;
+}
